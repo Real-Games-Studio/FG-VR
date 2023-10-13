@@ -6,10 +6,9 @@ using TMPro;
 public class HandAnimation : MonoBehaviour
 {
 
-    public static InputFeatureUsage<bool> thumbTouch;
-    // Start is called before the first frame update
-    public TextMeshProUGUI text;
+    [SerializeField] private TextMeshProUGUI text;
 
+    [SerializeField] private int index;
 
     void Start()
     {
@@ -24,7 +23,12 @@ public class HandAnimation : MonoBehaviour
         List<InputFeatureUsage> inputFeatures = new List<InputFeatureUsage>();
         leftController.TryGetFeatureUsages(inputFeatures);
         bool thumb;
-        leftController.TryGetFeatureValue(inputFeatures[11].As<bool>(), out thumb);
-        text.text = "11 ThumbTouch: " + thumb;
+
+        leftController.TryGetFeatureValue(inputFeatures[index].As<bool>(), out thumb);
+        if (text)
+        {
+            text.text = $"{index} ThumbTouch: " + thumb;
+            Debug.Log("entrei");
+        }
     }
 }
