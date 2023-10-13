@@ -19,12 +19,9 @@ public class HandAnimation : MonoBehaviour
     void Update()
     {
         InputDevice leftController = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
-
         List<InputFeatureUsage> inputFeatures = new List<InputFeatureUsage>();
         leftController.TryGetFeatureUsages(inputFeatures);
-        bool thumb;
-
-        leftController.TryGetFeatureValue(inputFeatures[index].As<bool>(), out thumb);
+        leftController.TryGetFeatureValue(inputFeatures[index].As<bool>(), out bool thumb);
         if (text)
         {
             text.text = $"{index} ThumbTouch: " + thumb;
