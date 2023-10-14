@@ -44,7 +44,6 @@ public class HandAnimation : MonoBehaviour
 
     private void UpdateAnimStates()
     {
-
         InputDevice vrController = InputDevices.GetDeviceAtXRNode(controllerType[sideController]);
         vrController.TryGetFeatureUsages(inputFeatures);
 
@@ -54,16 +53,25 @@ public class HandAnimation : MonoBehaviour
         //Avoid the exception of wrong object type comparassion. (because inputfeatures list return bool and Vector2)
         if (inputFeatures[5].type == typeof(bool))
         {
-            // Thumbs up
-            vrController.TryGetFeatureValue(inputFeatures[5].As<bool>(), out bool thumb);
-            thumbBlend = InputValueRateChange(!thumb, thumbBlend);
-            myAnimator.SetLayerWeight(1, thumbBlend);
 
+            // Thumbs up
+            bool thumb;
+            if (vrController.TryGetFeatureValue(inputFeatures[5].As<bool>(), out thumb) || vrController.TryGetFeatureValue(inputFeatures[7].As<bool>(), out thumb) || vrController.TryGetFeatureValue(inputFeatures[12].As<bool>(), out thumb) || vrController.TryGetFeatureValue(inputFeatures[13].As<bool>(), out thumb))
+            {
+                thumbBlend = InputValueRateChange(!thumb, thumbBlend);
+                myAnimator.SetLayerWeight(1, thumbBlend);
+                Debug.Log("teste");
+            }
+
+            // if (vrController.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primaryTouch, out bool a)) { }            
 
             // Point
-            vrController.TryGetFeatureValue(inputFeatures[10].As<bool>(), out bool point);
-            pointBlend = InputValueRateChange(!point, pointBlend);
-            myAnimator.SetLayerWeight(2, pointBlend);
+            if (vrController.TryGetFeatureValue(inputFeatures[10].As<bool>(), out bool point) && point) // "&& point" to call only when pressed
+            {
+                pointBlend = InputValueRateChange(!point, pointBlend);
+                myAnimator.SetLayerWeight(2, pointBlend);
+                Debug.Log("teste 2");
+            }
         }
     }
 
