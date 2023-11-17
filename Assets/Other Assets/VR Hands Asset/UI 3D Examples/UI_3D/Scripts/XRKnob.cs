@@ -87,8 +87,8 @@ namespace UnityEngine.XR.Content.Interaction
 
         [SerializeField]
         [Tooltip("The value of the knob")]
-        [Range(0.0f, 1.0f)]
-        float m_Value = 0.5f;
+        [Range(-1.0f, 2.0f)]
+        float m_Value = 1f;
 
         [SerializeField]
         [Tooltip("Whether this knob's rotation should be clamped by the angle limits")]

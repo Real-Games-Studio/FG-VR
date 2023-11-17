@@ -12,6 +12,12 @@ public class SteeringWheel : MonoBehaviour
     [SerializeField] private InputActionReference _inputGripLeftController;
     [SerializeField] private InputActionReference _inputGripRightController;
 
+    [Header("Steering Wheel")]
+    [SerializeField] private GameObject _centerSteeringWheel;
+
+    [Range(0, 3)]
+    [SerializeField] private float _radius;
+
     [Header("Player hands")]
     [SerializeField] private GameObject _prefabLeftHand;
     [SerializeField] private GameObject _prefabRightHand;
@@ -26,42 +32,33 @@ public class SteeringWheel : MonoBehaviour
     {
         if (_inputGripLeftController.action.ReadValue<float>() == 1)
         {
+            Vector3 direction = (_playerLeftHand.transform.position - _centerSteeringWheel.transform.localPosition).normalized;
+            Debug.Log(direction);
+            _prefabLeftHand.transform.localPosition = _centerSteeringWheel.transform.localPosition + direction * _radius;
 
-            Vector3 leftHandVector = new Vector3(_playerLeftHand.transform.parent.position.x, _prefabLeftHand.transform.position.y, _playerLeftHand.transform.parent.position.z);
-            _prefabLeftHand.transform.position = leftHandVector;
-            _prefabLeftHand.transform.LookAt(transform);
+            // _prefabLeftHand.transform.localPosition = new Vector3(-.11f, 0, .026f);
 
             _prefabLeftHand.SetActive(true);
             _playerLeftHand.SetActive(false);
-
-            Debug.Log("left on");
         }
         else
         {
             _prefabLeftHand.SetActive(false);
             _playerLeftHand.SetActive(true);
-
-            Debug.Log("left off");
         }
 
-        if (_inputGripRightController.action.ReadValue<float>() == 1)
-        {
-            Vector3 rightHandVector = new Vector3(_playerRightHand.transform.parent.position.x, _prefabRightHand.transform.position.y, _playerRightHand.transform.parent.position.z);
-            _prefabRightHand.transform.position = rightHandVector;
-            _prefabRightHand.transform.LookAt(transform);
+        // if (_inputGripRightController.action.ReadValue<float>() == 1)
+        // {
 
-            _prefabRightHand.SetActive(true);
-            _playerRightHand.SetActive(false);
 
-            Debug.Log("right on");
-        }
-        else
-        {
-            _prefabRightHand.SetActive(false);
-            _playerRightHand.SetActive(true);
-
-            Debug.Log("right off");
-        }
+        //     _prefabRightHand.SetActive(true);
+        //     _playerRightHand.SetActive(false);
+        // }
+        // else
+        // {
+        //     _prefabRightHand.SetActive(false);
+        //     _playerRightHand.SetActive(true);
+        // }
     }
 
     public void HoldingSteerWheel(bool state)

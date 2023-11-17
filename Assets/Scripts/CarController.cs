@@ -60,8 +60,8 @@ public class CarController : MonoBehaviour
 
    private void GetInput()
    {
-      horizontalInput = xRKnobWheelScript.value - STEERINGWHEEL_VALUE_ADJUST;
-      verticalInput = Mathf.Clamp(_inputTriggerLeftController.action.ReadValue<float>(), 0, 1);
+      horizontalInput = Mathf.Clamp(xRKnobWheelScript.value - STEERINGWHEEL_VALUE_ADJUST, -2.5f, 2.5f);
+      verticalInput = _inputTriggerLeftController.action.ReadValue<float>();
       isBreaking = Input.GetKey(KeyCode.Space);
    }
 
