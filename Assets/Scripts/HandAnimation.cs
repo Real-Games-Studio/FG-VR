@@ -1,11 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
-using TMPro;
-using System;
-using System.Xml.Linq;
-using UnityEngine.InputSystem.XR;
-using UnityEditor.XR.OpenXR.Features;
 
 enum Controller
 {
