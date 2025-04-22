@@ -1,0 +1,487 @@
+fileFormatVersion: 2
+guid: 580b3460a8c41374784c0f4a18c6debb
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 4
+  singleChannelComponent: 0
+  flipbookRows: 4
+  flipbookColumns: 4
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: circleAnimation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 776
+        width: 253
+        height: 248
+      alignment: 9
+      pivot: {x: 0.55, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d58820ff6b071c4ea11b0f573f9c816
+      internalID: -1960429277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: circleAnimation_1
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 776
+        width: 253
+        height: 248
+      alignment: 9
+      pivot: {x: 0.48218486, y: 0.39077562}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45a7965e41eb8da4d88bae505acd8207
+      internalID: -725328420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: circleAnimation_2
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 776
+        width: 253
+        height: 248
+      alignment: 9
+      pivot: {x: 0.52260494, y: 0.4031446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04ce1f67086d469418a1ea8a4ce07f4d
+      internalID: -1245964791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: circleAnimation_3
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 776
+        width: 253
+        height: 248
+      alignment: 9
+      pivot: {x: 0.5090419, y: 0.3893083}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b290b81bcb02396418fda7f78021430c
+      internalID: -1126679946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: circleAnimation_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 525
+        width: 253
+        height: 248
+      alignment: 9
+      pivot: {x: 0.5655139, y: 0.4554436}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd424fa8c07628c4da44d43d6ddf47b0
+      internalID: -1159283900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: circleAnimation_5
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 528
+        width: 253
+        height: 248
+      alignment: 9
+      pivot: {x: 0.5054595, y: 0.44430444}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af7d3f24d46982e4a86e1c894ed5915e
+      internalID: 2060771009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: circleAnimation_6
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 528
+        width: 253
+        height: 248
+      alignment: 9
+      pivot: {x: 0.5327568, y: 0.44430444}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dff71ada1aa2364999d0898fbb3f560
+      internalID: -1630053408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: circleAnimation_7
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 528
+        width: 253
+        height: 248
+      alignment: 9
+      pivot: {x: 0.5109188, y: 0.44430444}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 892ebed68f3739544bf385ec1546828c
+      internalID: 317146165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: circleAnimation_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 280
+        width: 253
+        height: 248
+      alignment: 9
+      pivot: {x: 0.5655139, y: 0.46658263}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 034425b890403414e969346654e4c7e3
+      internalID: -1508895686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: circleAnimation_9
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 280
+        width: 253
+        height: 248
+      alignment: 9
+      pivot: {x: 0.5054595, y: 0.46658263}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b14e174dc6c69d9408497ab28f56b169
+      internalID: -360188845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: circleAnimation_10
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 278
+        width: 253
+        height: 248
+      alignment: 9
+      pivot: {x: 0.5179984, y: 0.481639}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66836eeb4bd92f04a81364e4b24a4287
+      internalID: 367698003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: circleAnimation_11
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 280
+        width: 253
+        height: 248
+      alignment: 9
+      pivot: {x: 0.50000024, y: 0.48775926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05c88979fe464804ebd2da3dae9d2e1b
+      internalID: -335497725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: circleAnimation_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 34
+        width: 253
+        height: 248
+      alignment: 9
+      pivot: {x: 0.56599385, y: 0.48775905}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb9461aadf8c038419a44c7b85734e80
+      internalID: 1843684718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: circleAnimation_13
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 32
+        width: 253
+        height: 248
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28035429884baf2489a4844d154dccb8
+      internalID: 1830826651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: circleAnimation_14
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 32
+        width: 253
+        height: 248
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e37b070a293cdf249907f042c404ec9a
+      internalID: -1480800171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: circleAnimation_15
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 32
+        width: 253
+        height: 248
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f43cefab8f363884da3a359f42983b19
+      internalID: 1832965070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 1ea3c751a2c9e5f46a4d1b7337b3dc0c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      circleAnimation_0: -1960429277
+      circleAnimation_1: -725328420
+      circleAnimation_10: 367698003
+      circleAnimation_11: -335497725
+      circleAnimation_12: 1843684718
+      circleAnimation_13: 1830826651
+      circleAnimation_14: -1480800171
+      circleAnimation_15: 1832965070
+      circleAnimation_2: -1245964791
+      circleAnimation_3: -1126679946
+      circleAnimation_4: -1159283900
+      circleAnimation_5: 2060771009
+      circleAnimation_6: -1630053408
+      circleAnimation_7: 317146165
+      circleAnimation_8: -1508895686
+      circleAnimation_9: -360188845
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
