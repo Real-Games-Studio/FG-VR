@@ -26,6 +26,6 @@ public class VideoHandler : MonoBehaviour
     void OnVideoEnd(VideoPlayer vp)
     {
         // Retorna à cena de índice 0
-        SceneManager.LoadScene(0);
+        // SceneManager.LoadScene(0);
     }
 }

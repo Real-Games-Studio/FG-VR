@@ -1,91 +1,83 @@
 using System.Collections.Generic;
+using Unity.XR.Oculus;
 using UnityEngine;
 using UnityEngine.XR;
 
-enum Controller
-{
-    LeftHand,
-    RightHand
-}
+public enum ControllerHand { Left, Right }
 
+[RequireComponent(typeof(Animator))]
 public class HandAnimation : MonoBehaviour
 {
-    public const float INPUT_RATE_CHANGE = 20.0f;
-    private float pointBlend, thumbBlend;
-    private Animator myAnimator;
-    private List<InputFeatureUsage> inputFeatures = new List<InputFeatureUsage>();
-    private Dictionary<Controller, XRNode> controllerType = new Dictionary<Controller, XRNode>
-    {
-        {Controller.LeftHand , XRNode.LeftHand },
-        {Controller.RightHand , XRNode.RightHand }
-    };
-    [SerializeField] private Controller sideController;
+    public const float INPUT_RATE_CHANGE = 20f;
 
-    private void Start()
+    [SerializeField] private ControllerHand hand = ControllerHand.Right;
+
+    private XRNode xrNode;
+    private InputDevice device;
+    private Animator animator;
+
+    // valores suavizados
+    private float gripValue = 0f;
+    private float triggerValue = 0f;
+    private float thumbBlend = 0f;
+    private float pointBlend = 0f;
+
+    void Awake()
     {
-        myAnimator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    void Start()
     {
-        UpdateAnimStates();
+        // define de qual nó XR (esquerdo/direito) vamos ler
+        xrNode = (hand == ControllerHand.Left)
+            ? XRNode.LeftHand
+            : XRNode.RightHand;
     }
 
-    private void UpdateAnimStates()
+    void Update()
     {
-        InputDevice vrController = InputDevices.GetDeviceAtXRNode(controllerType[sideController]);
-        vrController.TryGetFeatureUsages(inputFeatures);
+        // (re)busca o dispositivo se o anterior não estiver válido
+        if (!device.isValid)
+            InitializeDevice();
 
-        //Run only with the controller device is active
-        if (vrController.TryGetFeatureValue(inputFeatures[20].As<bool>(), out bool isActive) && isActive)
-        {
-            // Grip
-            SetGripAnim(vrController);
+        if (!device.isValid)
+            return;  // ainda não há controller, sai
 
-            //Avoid the exception of wrong object type compare. (because inputfeatures list return bool and Vector2)
-            if (inputFeatures[5].type == typeof(bool))
-            {
-                // Thumbs up                                        
-                vrController.TryGetFeatureValue(inputFeatures[5].As<bool>(), out bool thumb);
-                thumbBlend = InputValueRateChange(!thumb, thumbBlend);
-                myAnimator.SetLayerWeight(1, thumbBlend);
+        // 1) Grip (float 0..1)
+        if (device.TryGetFeatureValue(CommonUsages.grip, out float g))
+            gripValue = g;
+        animator.SetFloat("Grip", gripValue);
 
-                // Point
-                vrController.TryGetFeatureValue(inputFeatures[10].As<bool>(), out bool point); // "&& point" to call only when pressed            
-                pointBlend = InputValueRateChange(!point, pointBlend);
-                myAnimator.SetLayerWeight(2, pointBlend);
-            }
-        }
+        // 2) Trigger (float 0..1)
+        if (device.TryGetFeatureValue(CommonUsages.trigger, out float t))
+            triggerValue = t;
+        animator.SetFloat("Trigger", triggerValue);
+
+        // 3) Touch de polegar e dedo indicador (bool)
+        bool isThumbTouch = false;
+        bool isIndexTouch = false;
+        device.TryGetFeatureValue(OculusUsages.thumbTouch, out isThumbTouch);
+        device.TryGetFeatureValue(OculusUsages.indexTouch, out isIndexTouch);
+
+        thumbBlend = SmoothBlend(isThumbTouch, thumbBlend);
+        pointBlend = SmoothBlend(isIndexTouch, pointBlend);
+
+        animator.SetLayerWeight(1, thumbBlend);
+        animator.SetLayerWeight(2, pointBlend);
     }
 
-    private void SetGripAnim(InputDevice controller)
+    private void InitializeDevice()
     {
-        controller.TryGetFeatureValue(UnityEngine.XR.CommonUsages.grip, out float value);
-        myAnimator.SetFloat("Grip", value);
+        var devices = new List<InputDevice>();
+        InputDevices.GetDevicesAtXRNode(xrNode, devices);
+        if (devices.Count > 0)
+            device = devices[0];
     }
 
-    private float InputValueRateChange(bool isDown, float value)
+    private float SmoothBlend(bool pressed, float current)
     {
-        float rateDelta = Time.deltaTime * INPUT_RATE_CHANGE;
-        float sign = isDown ? 1.0f : -1.0f;
-        return Mathf.Clamp01(value + rateDelta * sign);
+        float delta = Time.deltaTime * INPUT_RATE_CHANGE;
+        return Mathf.Clamp01(current + (pressed ? delta : -delta));
     }
-
-
-    // void Update()
-    // {
-
-    //     InputDevice leftController = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
-    //     leftController.TryGetFeatureUsages(inputFeatures);
-
-    //     //Avoid the exception of wrong object type comparassion. (because inputfeatures list return bool and Vector2)
-    //     if (inputFeatures[index].type == typeof(bool))
-    //     {
-    //         leftController.TryGetFeatureValue(inputFeatures[index].As<bool>(), out bool thumb);
-    //         text.text = $"{index} ThumbTouch: " + thumb;
-    //     }
-    // }
 }
-
-
-

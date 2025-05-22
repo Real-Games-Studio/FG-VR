@@ -9,8 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/VR FG.unity
     guid: 4a742c12f9146b54d80f329b02ea66b6
   - enabled: 1
-    path: Assets/Scenes/VR Video.unity
-    guid: 551ae7cadba41cc4293ad61bc254f5d0
+    path: Assets/Scenes/VR Video_Sala.unity
+    guid: f6f5b074da8712441bc5c6c9c369ce7a
+  - enabled: 1
+    path: Assets/Scenes/VR Video_Piscina.unity
+    guid: 219de6fbb8dfb6646b75845adf4fe30c
+  - enabled: 1
+    path: Assets/Scenes/VR Video_Mansao.unity
+    guid: 718aad06a5058474092514864a92fcaa
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: d22ca376a55099c4ea96a6aacf73ac05,
       type: 2}
