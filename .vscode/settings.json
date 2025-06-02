@@ -52,5 +52,6 @@
         "Temp/": true
     },
     "synthwave84.brightness": 1,
-    "dotnet.preferCSharpExtension": true
+    "dotnet.preferCSharpExtension": true,
+    "dotnet.defaultSolution": "VR-training.sln"
 }

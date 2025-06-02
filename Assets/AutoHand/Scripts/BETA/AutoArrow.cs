@@ -52,7 +52,7 @@ namespace Autohand.Demo
                 direction = currVel.normalized;
                 grabbable.rootTransform.position += direction * Time.fixedDeltaTime * currforce;
                 grabbable.rootTransform.rotation = Quaternion.FromToRotation(firedBow.arrowForceDirection, direction);
-                grabbable.body.velocity = Vector3.zero;
+                grabbable.body.linearVelocity = Vector3.zero;
                 grabbable.body.angularVelocity = Vector3.zero;
             }
         }
@@ -80,7 +80,7 @@ namespace Autohand.Demo
 
                         }
 
-                        grabbable.rootTransform.position += grabbable.body.velocity * 1 / 50f;
+                        grabbable.rootTransform.position += grabbable.body.linearVelocity * 1 / 50f;
                         grabbable.rootTransform.parent = collision.collider.transform;
                         grabbable.DeactivateRigidbody();
                         

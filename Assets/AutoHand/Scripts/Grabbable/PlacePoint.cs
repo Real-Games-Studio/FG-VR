@@ -299,7 +299,7 @@ namespace Autohand {
 
             if (placeObj.body != null)
             {
-                placeObj.body.velocity = Vector3.zero;
+                placeObj.body.linearVelocity = Vector3.zero;
                 placeObj.body.angularVelocity = Vector3.zero;
                 placedObjDetectionMode = placeObj.body.collisionDetectionMode;
 

@@ -103,7 +103,7 @@ namespace Autohand {
                     if(!disableBody && isKinematic)
                         grab.body.isKinematic = true;
 
-                    grab.body.velocity = Vector3.zero;
+                    grab.body.linearVelocity = Vector3.zero;
                     grab.body.angularVelocity = Vector3.zero;
 
                     grab.OnGrabEvent += OnGrab;

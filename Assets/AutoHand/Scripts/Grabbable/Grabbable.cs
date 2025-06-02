@@ -458,7 +458,7 @@ namespace Autohand {
 
 
             if(heldNoFriction)
-                SetPhysicsMateiral(Resources.Load<PhysicMaterial>("NoFriction"));
+                SetPhysicsMateiral(Resources.Load<PhysicsMaterial>("NoFriction"));
 
             if(ignoreWeight) {
                 if(!body.gameObject.CanGetComponent(out WeightlessFollower heldFollower))
@@ -568,7 +568,7 @@ namespace Autohand {
                 hand.Release();
                 throwPower = throwMult;
                 if(body != null)
-                    body.velocity = body.velocity.normalized * Mathf.Clamp(body.velocity.magnitude, 0, 1);
+                    body.linearVelocity = body.linearVelocity.normalized * Mathf.Clamp(body.linearVelocity.magnitude, 0, 1);
             }
             else if(beingGrabbedBy.Contains(hand))
                 hand.BreakGrabConnection();
@@ -580,7 +580,7 @@ namespace Autohand {
             if(heldBy.Contains(hand)) {
                 if (body != null){
                     body.WakeUp();
-                    body.velocity *= 0;
+                    body.linearVelocity *= 0;
                     body.angularVelocity *= 0;
                 }
 
@@ -724,7 +724,7 @@ namespace Autohand {
 
         internal void SetThrowVelocity(Vector3 throwVel, Vector3 throwAngularVel) {
             if(body != null && heldBy.Count == 0) {
-                body.velocity = throwVel * throwPower;
+                body.linearVelocity = throwVel * throwPower;
                 if(!float.IsNaN(throwAngularVel.x) && !float.IsNaN(throwAngularVel.y) && !float.IsNaN(throwAngularVel.z))
                     body.angularVelocity = throwAngularVel;
             }

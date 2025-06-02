@@ -138,7 +138,7 @@ namespace Autohand {
                 if(value != null && _grabRoutine != null) {
                     StopCoroutine(_grabRoutine);
                     if(holdingObj != null) {
-                        holdingObj.body.velocity = Vector3.zero;
+                        holdingObj.body.linearVelocity = Vector3.zero;
                         holdingObj.body.angularVelocity = Vector3.zero;
                         holdingObj.beingGrabbed = false;
                     }
@@ -165,8 +165,8 @@ namespace Autohand {
             base.Awake();
 
             if(enableMovement) {
-                body.drag = startDrag;
-                body.angularDrag = startAngularDrag;
+                body.linearDamping = startDrag;
+                body.angularDamping = startAngularDrag;
                 body.useGravity = false;
             }
         }
@@ -416,7 +416,7 @@ namespace Autohand {
 
                 if(grabbing) {
                     if (holdingObj.body != null){
-                        holdingObj.body.velocity = Vector3.zero;
+                        holdingObj.body.linearVelocity = Vector3.zero;
                         holdingObj.body.angularVelocity = Vector3.zero;
                     }
                 }
@@ -510,7 +510,7 @@ namespace Autohand {
                 heldJoint = null;
             }
             if(holdingObj != null) {
-                holdingObj.body.velocity /= 100f;
+                holdingObj.body.linearVelocity /= 100f;
                 holdingObj.body.angularVelocity /= 100f;
                 OnGrabJointBreak?.Invoke(this, holdingObj);
                 holdingObj?.OnHandJointBreak(this);
@@ -976,7 +976,7 @@ namespace Autohand {
             lookingAtObj = null;
             holdingObj = grab;
 
-            body.velocity = Vector3.zero;
+            body.linearVelocity = Vector3.zero;
             body.angularVelocity = Vector3.zero;
 
             OnBeforeGrabbed?.Invoke(this, holdingObj);
@@ -1044,7 +1044,7 @@ namespace Autohand {
                 if(holdingObj.singleHandOnly && holdingObj.HeldCount(false, false, false) > 0) {
                     holdingObj.ForceHandRelease(holdingObj.GetHeldBy()[0]);
                     if(holdingObj.body != null) {
-                        holdingObj.body.velocity = Vector3.zero;
+                        holdingObj.body.linearVelocity = Vector3.zero;
                         holdingObj.body.angularVelocity = Vector3.zero;
                     }
                 }
@@ -1142,7 +1142,7 @@ namespace Autohand {
                                 holdingObj.body.transform.rotation = Quaternion.Lerp(startGrabbableRotation, localGrabbablePoint.rotation, grabCurve.Evaluate(point / handOpenTime));
                                 holdingObj.body.position = holdingObj.body.transform.position;
                                 holdingObj.body.rotation = holdingObj.body.transform.rotation;
-                                holdingObj.body.velocity = Vector3.zero;
+                                holdingObj.body.linearVelocity = Vector3.zero;
                                 holdingObj.body.angularVelocity = Vector3.zero;
                             }
                             else {
@@ -1217,7 +1217,7 @@ namespace Autohand {
                 {
                     if (startHoldingObj.body != null)
                     {
-                        startHoldingObj.body.velocity = Vector3.zero;
+                        startHoldingObj.body.linearVelocity = Vector3.zero;
                         startHoldingObj.body.angularVelocity = Vector3.zero;
                     }
                     startHoldingObj.beingGrabbed = false;

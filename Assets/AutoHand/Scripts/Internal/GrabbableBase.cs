@@ -30,7 +30,7 @@ namespace Autohand {
 
         internal List<Collider> _grabColliders = new List<Collider>();
         public List<Collider> grabColliders { get { return _grabColliders; } }
-        protected Dictionary<Collider, PhysicMaterial> grabColliderMaterials = new Dictionary<Collider, PhysicMaterial>();
+        protected Dictionary<Collider, PhysicsMaterial> grabColliderMaterials = new Dictionary<Collider, PhysicsMaterial>();
         protected Dictionary<Transform, int> originalLayers = new Dictionary<Transform, int>();
 
         protected List<Hand> heldBy = new List<Hand>();
@@ -378,7 +378,7 @@ namespace Autohand {
 
 
         /// <summary>Resets the physics materials on all the colliders to how it was during Start()</summary>
-        public void SetPhysicsMateiral(PhysicMaterial physMat) {
+        public void SetPhysicsMateiral(PhysicsMaterial physMat) {
             foreach(var collider in grabColliders) {
                 collider.material = physMat;
             }
@@ -394,7 +394,7 @@ namespace Autohand {
 
         public void SetCollidersRecursive(Transform obj) {
 
-            var noFrictionMat = Resources.Load<PhysicMaterial>("NoFriction");
+            var noFrictionMat = Resources.Load<PhysicsMaterial>("NoFriction");
             foreach(var col in obj.GetComponents<Collider>()) {
                 grabColliders.Add(col);
                 if(col.sharedMaterial == null || col.sharedMaterial == noFrictionMat)

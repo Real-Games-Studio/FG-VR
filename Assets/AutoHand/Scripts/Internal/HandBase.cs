@@ -383,7 +383,7 @@ namespace Autohand {
             velocityTracker.UpdateThrowing();
 
             if(ignoreMoveFrame){
-                body.velocity = Vector3.zero;
+                body.linearVelocity = Vector3.zero;
                 body.angularVelocity = Vector3.zero;
             }
             ignoreMoveFrame = false;
@@ -529,12 +529,12 @@ namespace Autohand {
                     vel.z = Mathf.Clamp(vel.z, -velocityClamp, velocityClamp);
 
                     var towardsVel = new Vector3(
-                        Mathf.MoveTowards(body.velocity.x, vel.x, minVelocityChange + Mathf.Abs(body.velocity.x) * Time.fixedDeltaTime * 60),
-                        Mathf.MoveTowards(body.velocity.y, vel.y, minVelocityChange + Mathf.Abs(body.velocity.y) * Time.fixedDeltaTime * 60),
-                        Mathf.MoveTowards(body.velocity.z, vel.z, minVelocityChange + Mathf.Abs(body.velocity.z) * Time.fixedDeltaTime * 60)
+                        Mathf.MoveTowards(body.linearVelocity.x, vel.x, minVelocityChange + Mathf.Abs(body.linearVelocity.x) * Time.fixedDeltaTime * 60),
+                        Mathf.MoveTowards(body.linearVelocity.y, vel.y, minVelocityChange + Mathf.Abs(body.linearVelocity.y) * Time.fixedDeltaTime * 60),
+                        Mathf.MoveTowards(body.linearVelocity.z, vel.z, minVelocityChange + Mathf.Abs(body.linearVelocity.z) * Time.fixedDeltaTime * 60)
                     );
 
-                    body.velocity = towardsVel;
+                    body.linearVelocity = towardsVel;
                 }
             }
         }
@@ -554,7 +554,7 @@ namespace Autohand {
             angle = Mathf.Abs(angle);
 
             var angleStrengthOffset = Mathf.Lerp(1f, 2f, angle / 45f);
-            body.angularDrag = Mathf.Lerp(startAngularDrag + 10, startAngularDrag, angle) * Time.fixedDeltaTime * 60;
+            body.angularDamping = Mathf.Lerp(startAngularDrag + 10, startAngularDrag, angle) * Time.fixedDeltaTime * 60;
 
 
             body.angularVelocity = new Vector3(
@@ -603,7 +603,7 @@ namespace Autohand {
                     holdingObj.body.position = holdingObj.body.transform.position;
                     holdingObj.body.rotation = holdingObj.body.transform.rotation;
 
-                    body.velocity = deltaHandRot * body.velocity;
+                    body.linearVelocity = deltaHandRot * body.linearVelocity;
                     body.angularVelocity = deltaHandRot * body.angularVelocity;
 
                     grabPositionOffset = deltaGrabRot * grabPositionOffset;
@@ -626,7 +626,7 @@ namespace Autohand {
                 transform.rotation = rot;
                 body.position = pos;
                 body.rotation = rot;
-                body.velocity = Vector3.zero;
+                body.linearVelocity = Vector3.zero;
                 body.angularVelocity = Vector3.zero;
             }
 

@@ -90,8 +90,8 @@ namespace Autohand {
 
             if(startMass == 0) {
                 startMass = body.mass;
-                startDrag = body.drag;
-                startAngleDrag = body.angularDrag;
+                startDrag = body.linearDamping;
+                startAngleDrag = body.angularDamping;
                 useGravity = body.useGravity;
             }
         }
@@ -150,8 +150,8 @@ namespace Autohand {
 
             if (startMass == 0) {
                 startMass = body.mass;
-                startDrag = body.drag;
-                startAngleDrag = body.angularDrag;
+                startDrag = body.linearDamping;
+                startAngleDrag = body.angularDamping;
                 useGravity = body.useGravity;
             }
 
@@ -161,13 +161,13 @@ namespace Autohand {
             startHandAngleDrag = hand.startAngularDrag;
 
             body.mass = hand.body.mass;
-            body.drag = hand.startDrag;
-            body.angularDrag = hand.startAngularDrag;
+            body.linearDamping = hand.startDrag;
+            body.angularDamping = hand.startAngularDrag;
             body.useGravity = false;
 
             hand.body.mass = 0f;
-            hand.body.angularDrag = 0;
-            hand.body.drag = 0;
+            hand.body.angularDamping = 0;
+            hand.body.linearDamping = 0;
 
             followPositionStrength = hand.followPositionStrength;
             followRotationStrength = hand.followRotationStrength;
@@ -187,8 +187,8 @@ namespace Autohand {
         void OnHandReleased(Hand hand, Grabbable grab){
             RemoveFollow(hand, heldMoveTo[hand]);
             hand.body.mass = startHandMass;
-            hand.body.drag = startHandDrag;
-            hand.body.angularDrag = startHandAngleDrag;
+            hand.body.linearDamping = startHandDrag;
+            hand.body.angularDamping = startHandAngleDrag;
         }
 
         int velI = 0;
@@ -303,11 +303,11 @@ namespace Autohand {
                 vel.z = Mathf.Clamp(vel.z, -velocityClamp, velocityClamp);
 
                 var towardsVel = new Vector3(
-                    Mathf.MoveTowards(body.velocity.x, vel.x, minVelocityChange + Mathf.Abs(body.velocity.x) * Time.fixedDeltaTime * 60),
-                    Mathf.MoveTowards(body.velocity.y, vel.y, minVelocityChange + Mathf.Abs(body.velocity.y) * Time.fixedDeltaTime * 60),
-                    Mathf.MoveTowards(body.velocity.z, vel.z, minVelocityChange + Mathf.Abs(body.velocity.z) * Time.fixedDeltaTime * 60)
+                    Mathf.MoveTowards(body.linearVelocity.x, vel.x, minVelocityChange + Mathf.Abs(body.linearVelocity.x) * Time.fixedDeltaTime * 60),
+                    Mathf.MoveTowards(body.linearVelocity.y, vel.y, minVelocityChange + Mathf.Abs(body.linearVelocity.y) * Time.fixedDeltaTime * 60),
+                    Mathf.MoveTowards(body.linearVelocity.z, vel.z, minVelocityChange + Mathf.Abs(body.linearVelocity.z) * Time.fixedDeltaTime * 60)
                 );
-                body.velocity = towardsVel;
+                body.linearVelocity = towardsVel;
             }
         }
 
@@ -326,7 +326,7 @@ namespace Autohand {
             Vector3 angular = multiLinear * axis.normalized;
             angle = Mathf.Abs(angle);
 
-            body.angularDrag = Mathf.Lerp(startHandDrag + 10, startHandDrag, angle) * Time.fixedDeltaTime * 60;
+            body.angularDamping = Mathf.Lerp(startHandDrag + 10, startHandDrag, angle) * Time.fixedDeltaTime * 60;
 
 
             body.angularVelocity = new Vector3(
@@ -364,8 +364,8 @@ namespace Autohand {
             if(this.follow1 == null && follow2 == null && !grab.beingGrabbed) {
                 if(body != null) {
                     body.mass = startMass;
-                    body.drag = startDrag;
-                    body.angularDrag = startAngleDrag;
+                    body.linearDamping = startDrag;
+                    body.angularDamping = startAngleDrag;
                     body.useGravity = useGravity;
                 }
                 Destroy(this);
@@ -385,8 +385,8 @@ namespace Autohand {
             if (body != null)
             {
                 body.mass = startMass;
-                body.drag = startDrag;
-                body.angularDrag = startAngleDrag;
+                body.linearDamping = startDrag;
+                body.angularDamping = startAngleDrag;
                 body.useGravity = useGravity;
             }
         }
