@@ -1360,6 +1360,11 @@ PrefabInstance:
       propertyPath: xrRig
       value: 
       objectReference: {fileID: 902079629}
+    - target: {fileID: 496199954205215974, guid: 693b2a020224247438fe6823039c0a86,
+        type: 3}
+      propertyPath: followCameraPosition
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 496199954205215975, guid: 693b2a020224247438fe6823039c0a86,
         type: 3}
       propertyPath: m_Name

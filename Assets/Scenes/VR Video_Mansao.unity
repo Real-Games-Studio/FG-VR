@@ -1328,6 +1328,11 @@ PrefabInstance:
       propertyPath: panoramicMaterial
       value: 
       objectReference: {fileID: 2100000, guid: da76c1fc4721da8478574274e17d3d76, type: 2}
+    - target: {fileID: 496199954205215974, guid: 693b2a020224247438fe6823039c0a86,
+        type: 3}
+      propertyPath: followCameraPosition
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6847257878827010594, guid: 693b2a020224247438fe6823039c0a86,
         type: 3}
       propertyPath: m_Name
