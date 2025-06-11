@@ -53,5 +53,5 @@
     },
     "synthwave84.brightness": 1,
     "dotnet.preferCSharpExtension": true,
-    "dotnet.defaultSolution": "VR-training.sln"
+    "dotnet.defaultSolution": "FG-VR.sln"
 }
