@@ -1297,7 +1297,7 @@ PrefabInstance:
         type: 3}
       propertyPath: panoramicMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 6953d25ddbc5d7e4499e1123c48d3e0c, type: 2}
+      objectReference: {fileID: 2100000, guid: 1204dfb9440e9bc44af3b880c954c93c, type: 2}
     - target: {fileID: 496199954205215974, guid: 693b2a020224247438fe6823039c0a86,
         type: 3}
       propertyPath: followCameraPosition
@@ -1582,6 +1582,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 682671903405243216, guid: 684c27c36eb18644eb7b4fca9b707b0e,
+        type: 3}
+      propertyPath: m_Antialiasing
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 682671903405243216, guid: 684c27c36eb18644eb7b4fca9b707b0e,
+        type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1134884199772061466, guid: 684c27c36eb18644eb7b4fca9b707b0e,
         type: 3}
       propertyPath: m_SelectInput.m_ObjectReferenceObject

@@ -19,8 +19,8 @@ TagManager:
   - Grabbable
   - HandPlayer
   - TV
-  - 
-  - 
+  - LeftEyeLayer
+  - RightEyeLayer
   - 
   - 
   - 
